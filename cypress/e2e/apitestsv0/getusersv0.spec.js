@@ -1,5 +1,5 @@
 describe('get api user test', () => {
-    let accessToken = '9f2ac5962fe57ddcb885af09b96c846c2d165ddb6cb2cebba61e91aa98400bc7';
+    let accessToken = '1bcbe327ff1c4085cf1874ec9445831a12bb215369061f354affdc5de2cebcc7';
     it('get users', () => {
         cy.request({
             method: 'GET',

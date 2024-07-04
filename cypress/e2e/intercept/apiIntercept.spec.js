@@ -1,8 +1,8 @@
 describe("intercept with example", () => {
   it("test api with simple intercept", () => {
-    cy.visit('https://jsonplaceholder.typicode.com/');
+    cy.visit("https://jsonplaceholder.typicode.com/");
     cy.intercept({
-        path: "/posts"
+      path: "/posts",
     }).as("posts");
     cy.get("tr td").eq(0).should("contain", "posts").click();
     cy.wait("@posts").then((inter) => {
@@ -12,17 +12,21 @@ describe("intercept with example", () => {
     });
   });
 
-  it('mocking with intercept test with static response', () => {
-    cy.visit('https://jsonplaceholder.typicode.com/');
-    cy.intercept('GET', '/posts', {totalpost:5, name: 'Aswani'}).as('mockedPosts');
+  it("mocking with intercept test with static response", () => {
+    cy.visit("https://jsonplaceholder.typicode.com/");
+    cy.intercept("GET", "/posts", { totalpost: 5, name: "Aswani" }).as(
+      "mockedPosts"
+    );
     cy.get("tr td").eq(0).should("contain", "posts").click();
-    cy.wait('@mockedPosts');
+    cy.wait("@mockedPosts");
   });
 
-  it('mocking with intercept test with dynamic fixture', () => {
-    cy.visit('https://jsonplaceholder.typicode.com/');
-    cy.intercept('GET', '/posts', {fixture: 'example.json'}).as('mockedPosts');
+  it("mocking with intercept test with dynamic fixture", () => {
+    cy.visit("https://jsonplaceholder.typicode.com/");
+    cy.intercept("GET", "/posts", { fixture: "example.json" }).as(
+      "mockedPosts"
+    );
     cy.get("tr td").eq(0).should("contain", "posts").click();
-    cy.wait('@mockedPosts');
+    cy.wait("@mockedPosts");
   });
 });
