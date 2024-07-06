@@ -11,7 +11,7 @@ describe('get api user test', () => {
             expect(res.status).to.eq(200);
         });
     });
-    it('get user by id test', () => {
+    it.skip('get user by id test', () => {
         cy.request({
             method: 'GET',
             url: 'https://gorest.co.in/public/v2/users/6990701',

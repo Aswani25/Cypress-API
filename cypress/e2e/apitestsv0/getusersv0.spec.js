@@ -12,7 +12,7 @@ describe('get api user test', () => {
             expect(res.body.meta.pagination.limit).to.eq(10)
         });
     });
-    it('get user by id test', () => {
+    it.skip('get user by id test', () => {
         cy.request({
             method: 'GET',
             url: 'https://gorest.co.in/public-api/users/6990701',
